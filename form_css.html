@@ -1,0 +1,62 @@
+<!--
+    Raymund Joseph M. Rosco
+-->
+<!DOCTYPE html>
+<head>
+    <title>Registration Form</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+    <style>
+        body {
+            font-family: Oswald, sans-serif;
+            background-color:lightslategray;
+        }
+        #formHolder {
+            max-width: 275px;
+            padding: 50px;
+            border-radius: 8px;
+            background-color: white;
+        }
+        label {
+            font-weight: bold;
+        }
+        input {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <div id="formHolder">
+        <h1 style="font-size: 40px;">Registration Form</h1>
+        <form>
+            <label for="fname">First Name:</label><br>
+            <input type="text" name="fname"><br>
+            <label for="lname">Last Name:</label><br>
+            <input type="text" name="lname"><br>
+            <label for="nname">Nickname:</label><br>
+            <input type="text" name="nname"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password"><br>
+            <label for="date_of_birth">Date of Birth: </label><br>  
+            <input type="date" id="date_of_birth" name="date_of_birth">
+            </br>
+            <label for="gender">Gender: </label><br>
+            <div>
+                <input type="radio" id="male" name="gender" value="male"><br>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+                <input type="radio" id="others" name="gender" value="others">
+                <label for="others">Others</label><br>
+            </div>
+            <label for="mobile">Mobile: </label>
+            <input type="text" id="mobile" name="mobile">
+            </br>
+            <label for="address">Address:</label><br>
+            <textarea type="textarea" id="address" name="address"></textarea>
+            </br>
+            <button>Submit</button><button>Reset</button><br>
+        </form>
+    </div>
+</body>
