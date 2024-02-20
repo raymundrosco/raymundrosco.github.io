@@ -12,21 +12,40 @@
         }
         #formHolder {
             max-width: 275px;
-            padding: 50px;
-            border-radius: 8px;
+            border-radius: 4px;
             background-color: white;
+            margin: auto;
+            box-sizing: border-box;
+            padding: 25px;
+        }
+        #radioButtons {
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+        }
+        form {
+            width: 100%;
+            box-sizing: border-box;
         }
         label {
             font-weight: bold;
         }
         input {
-            width: 80%;
+            box-sizing: border-box;
+            width: inherit;
+        }
+        textarea {
+            box-sizing: border-box;
+            width: inherit;
+        }
+        input[type=radio] {
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
     <div id="formHolder">
-        <h1 style="font-size: 40px;">Registration Form</h1>
+        <h1 style="font-size: 34px;">Registration Form</h1>
         <form>
             <label for="fname">First Name:</label><br>
             <input type="text" name="fname"><br>
@@ -42,13 +61,13 @@
             <input type="date" id="date_of_birth" name="date_of_birth">
             </br>
             <label for="gender">Gender: </label><br>
-            <div>
+            <div id="radioButtons">
                 <input type="radio" id="male" name="gender" value="male"><br>
                 <label for="male">Male</label>
                 <input type="radio" id="female" name="gender" value="female">
                 <label for="female">Female</label>
                 <input type="radio" id="others" name="gender" value="others">
-                <label for="others">Others</label><br>
+                <label for="others">Other</label><br>
             </div>
             <label for="mobile">Mobile: </label>
             <input type="text" id="mobile" name="mobile">
@@ -56,7 +75,8 @@
             <label for="address">Address:</label><br>
             <textarea type="textarea" id="address" name="address"></textarea>
             </br>
-            <button>Submit</button><button>Reset</button><br>
+            <button style="background-color: green; color: white; width: 33%; border: none; padding: 4px;">Submit</button>
+            <button style="background-color: red; color: white; width: 33%; border: none; padding: 4px;">Reset</button><br>
         </form>
     </div>
 </body>
