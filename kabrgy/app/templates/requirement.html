@@ -1,0 +1,120 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'index.css' %}" type="text/css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+</head>
+
+<body>
+    <script>
+        let cardIndex = parseInt(localStorage.getItem("index"))
+        let index1 = 0
+        let comments
+        console.log(cardIndex);
+    </script>
+    <section>
+        <div class="left-div sectionDiv">
+            <div class="logo-div header">
+                <a href="{% url 'index' %}">
+                    <img id="logo" src="{% static 'logo.png' %}" />
+                </a>
+            </div>
+            <nav>
+                <a class="navBtn" href="{% url 'index' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        home
+                    </span>
+                    <div class="navBtn">Home</div>
+                </a>
+                <a class="navBtn" href="{% url 'leaderboards' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        bar_chart
+                    </span>
+                    <div class="navBtn">Leaderboards</div>
+                </a>
+                <a class="navBtn">
+                    <span class="material-symbols-outlined btnSpacing">
+                        door_open
+                    </span>
+                    <div class="navBtn">Sign-out</div>
+                </a>
+            </nav>
+        </div>
+        <div class="right-div sectionDiv">
+            <div class="title-div header">
+                <div class="title-container">
+                    <a href="{% url 'index' %}">
+                        <span class="material-symbols-outlined back-button">
+                            arrow_back
+                        </span>
+                    </a>
+                    {% for x in obj %}
+                    <script>
+                        index1 = '{{forloop.counter0}}'
+                        if (index1 == cardIndex) {
+                            document.write('<p class="title-req">{{x.title}}</p>')
+                        }
+                    </script>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="body">
+                <div id="requirement-container">
+                    <div class="req-desc">
+                        {% for x in obj %}
+                        <script>
+                            index1 = '{{forloop.counter0}}'
+                            if (index1 == cardIndex) {
+                                document.write('<p class="content-req">{{x.dueDate}}</p>')
+                                document.write('<p class="content-req">{{x.description}}</p>')
+                                document.write('<div class="divider"></div>')
+                                document.write('<p class="content-req ">Comments</p>')
+                            }
+                        </script>
+                            {% for y in x.comments %}
+                            <script>
+                                index1 = '{{forloop.counter0}}'
+                                if (index1 == cardIndex) {
+                                    document.write('<div class="comment">')
+                                    document.write('<div class="account-comment">')
+                                    document.write('<span class="material-symbols-outlined">account_circle</span>')
+                                    document.write('<p>LYDO</p>')
+                                    document.write('</div>')
+                                    document.write('<p class="content">{{y}}</p>')
+                                    document.write('</div>')
+                                }
+                            </script>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <div class="req-submit">
+                        <div class="divider"></div>
+                        <p class="content-req ">Your submission</p>
+                        <form action="{%  url 'requirements' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <p >
+                                {{form.file}}
+                            </p>
+                            <input class="req-btn" type="submit" value="Submit  " />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    </script>
+</body>
+
+</html>

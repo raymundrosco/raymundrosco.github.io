@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'index.css' %}" type="text/css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+</head>
+
+<body>
+    <script>
+        let cardIndex = 0
+        let visible = false
+    </script>
+    <section>
+        <div class="left-div sectionDiv">
+            <div class="logo-div header">
+                <a href="{% url 'index' %}">
+                    <img id="logo" src="{% static 'logo.png' %}" />
+                </a>
+            </div>
+            <nav>
+                <a class="navBtn" href="{% url 'index' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        home
+                    </span>
+                    <div class="navBtn">Home</div>
+                </a>
+                <a class="navBtn" href="{% url 'leaderboards' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        bar_chart
+                    </span>
+                    <div class="navBtn">Leaderboards</div>
+                </a>
+                <a class="navBtn">
+                    <span class="material-symbols-outlined btnSpacing">
+                        door_open
+                    </span>
+                    <div class="navBtn">Sign-out</div>
+                </a>
+            </nav>
+        </div>
+        <div class="right-div sectionDiv">
+            <div class="title-div header">
+                <span class="title-container">
+                    <p class="title">Work well!</p>
+                </span>
+            </div>
+            <div class="body">
+                <div id="card-container">
+                    {% for x in obj %}
+                    <button onclick="hide('{{forloop.counter0}}')">
+                        <div class="card" id="card-holder">
+                            <p id="title" class="heading">
+                                {{ x.title }}
+                            </p>
+                            <p id="dueDate" class="content">
+                                {{ x.dueDate }}
+                            </p>
+                            <p id="description" class="content">
+                                {{ x.description }}
+                            </p>
+                        </div>
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        const cardContainer = document.getElementById("card-container")
+        const cardHolder = document.getElementById("card-holder")
+        function hide(x) {
+            localStorage.setItem("index", x)
+            window.location.href = "requirements"
+            console.log(localStorage);
+        }
+    </script>
+</body>
+
+</html>

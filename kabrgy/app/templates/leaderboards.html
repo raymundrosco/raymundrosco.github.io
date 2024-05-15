@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Leaderboards</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'index.css' %}" type="text/css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+</head>
+
+<body>
+    <section>
+        <div class="left-div sectionDiv">
+            <div class="logo-div header">
+                <a href="{% url 'index' %}">
+                    <img id="logo" src="{% static 'logo.png' %}" />
+                </a>
+            </div>
+            <nav>
+                <a class="navBtn" href="{% url 'index' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        home
+                    </span>
+                    <div class="navBtn">Home</div>
+                </a>
+                <a class="navBtn" href="{% url 'leaderboards' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        bar_chart
+                    </span>
+                    <div class="navBtn">Leaderboards</div>
+                </a>
+                <a class="navBtn">
+                    <span class="material-symbols-outlined btnSpacing">
+                        door_open
+                    </span>
+                    <div class="navBtn">Sign-out</div>
+                </a>
+            </nav>
+        </div>
+        <div class="right-div sectionDiv">
+            <div class="title-div header">
+                <span class="title-container">
+                    <p class="title">Leaderboards!</p>
+                </span>
+            </div>
+            <div class="body">
+                {% for x in obj %}
+                <div class="leaderboardCard">
+                    <div class="skCardLB">
+                        {% if forloop.counter == 1 %}
+                            <div class="place first">
+                                <p id="counter">{{ forloop.counter }}<p>
+                            </div>
+                        {% elif forloop.counter == 2 %}
+                            <div class="place second">
+                                <p id="counter">{{ forloop.counter }}<p>
+                            </div>
+                        {% elif forloop.counter == 3 %}
+                            <div class="place third">
+                                <p id="counter">{{ forloop.counter }}<p>
+                            </div>
+                        {% else %}
+                            <div class="place etc">
+                                <p id="counter">{{ forloop.counter }}<p>
+                            </div>
+                        {% endif %}
+                        <!-- <img src="{{ x.logo }}" class="skLogo" height="24" width="24"> -->
+                        <p class="skName">
+                            {{ x.name }}
+                        </p>
+                    </div>
+                    <div class="badgeDiv">
+                        {% for y in x.badge %}
+                            {% if y == 1 %}
+                                <span class="material-symbols-outlined">
+                                    verified
+                                </span>
+                            {% endif %}
+                            {% if y == 2 %}
+                                <span class="material-symbols-outlined">
+                                    alarm
+                                </span>
+                            {% endif %}
+                            {% if y == 3 %}
+                                <span class="material-symbols-outlined">
+                                    visibility
+                                </span>
+                            {% endif %}
+                            {% if y == 4 %}
+                                <span class="material-symbols-outlined">
+                                    heart_check
+                                </span>
+                            {% endif %}
+                        {% endfor %}                     
+                    </div>
+                    <p class="content xp">
+                        {{ x.xp }} XP
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <script src="" async defer>
+    </script>
+</body>
+
+</html>

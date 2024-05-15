@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'feedback.css' %}" type="text/css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0" />
+</head>
+
+<body>
+    <section>
+        <div class="left-div sectionDiv">
+            <div class="logo-div header">
+                <a href="{% url 'index' %}">
+                    <img id="logo" src="{% static 'logo.png' %}" />
+                </a>
+            </div>
+            <nav>
+                <a class="navBtn" href="{% url 'index' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        home
+                    </span>
+                    <div class="navBtn">Home</div>
+                </a>
+                <a class="navBtn" href="{% url 'leaderboards' %}">
+                    <span class="material-symbols-outlined btnSpacing">
+                        bar_chart
+                    </span>
+                    <div class="navBtn">Leaderboards</div>
+                </a>
+                <a class="navBtn">
+                    <span class="material-symbols-outlined btnSpacing">
+                        door_open
+                    </span>
+                    <div class="navBtn">Sign-out</div>
+                </a>
+            </nav>
+        </div>
+        <div class="right-div sectionDiv">
+            <div class="title-div header">
+                <span class="title-container">
+                    <p class="title">Work well!</p>
+                </span>
+            </div>
+            <div class="body">
+                <h2>CBYDP</h2>
+            <p class="date">March 20, 2024</p>
+            <p>The CBYDP is a three (3) year rolling plan created in consultation and concurrence of KK. This plan is the basis for preparing the Annual Barangay Youth Investment Program (ABYIP).</p>
+            <div class="criteria">
+                <div class="accordion">
+                    <span class="title">Criteria 1</span>
+                    <span class="percent">40%/50%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 2</span>
+                    <span class="percent">20%/30%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 3</span>
+                    <span class="percent">10%/15%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 4</span>
+                    <span class="percent">4%/5%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+            </div>
+            <div class="submission">
+                <div class="submission-info">
+                    <p>Your Submission: </p>
+                    <span class="review-status">Reviewed</span>
+                </div>
+                <button class="resubmit">Resubmit</button>
+            </div>                  
+            <div class="comments-section">
+                <h2>Comments</h2>
+                <label for="comment">
+                    <img src="maria.png" alt="Profile of Maria" class="profile-pic">
+                    Maria
+                </label>
+                <p>Everything is great, just create at least one more PPA for each center of participation.</p>
+                <textarea id="comment" name="comment" placeholder="Insert Comment" rows="4" required></textarea>
+                <button type="submit">Submit Comment</button>
+            </div>
+
+        </div>
+    </section>
+    <script>
+    </script>
+</body>
+
+</html>

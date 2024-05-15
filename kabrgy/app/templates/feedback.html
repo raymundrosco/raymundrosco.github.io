@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header1">
+            <h1>SK San Roque, Bombon</h1>
+        </header>
+        <section>
+            <h2>CBYDP</h2>
+            <p class="date">March 20, 2024</p>
+            <p>The CBYDP is a three (3) year rolling plan created in consultation and concurrence of KK. This plan is the basis for preparing the Annual Barangay Youth Investment Program (ABYIP).</p>
+            <div class="criteria">
+                <div class="accordion">
+                    <span class="title">Criteria 1</span>
+                    <span class="percent">40%/50%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 2</span>
+                    <span class="percent">20%/30%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 3</span>
+                    <span class="percent">10%/15%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="accordion">
+                    <span class="title">Criteria 4</span>
+                    <span class="percent">4%/5%</span>
+                </div>
+                <div class="panel">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+            </div>
+            <div class="submission">
+                <div class="submission-info">
+                    <p>Your Submission: </p>
+                    <span class="review-status">Reviewed</span>
+                </div>
+                <button class="resubmit">Resubmit</button>
+            </div>                  
+            <div class="comments-section">
+                <h2>Comments</h2>
+                <label for="comment">
+                    <img src="maria.png" alt="Profile of Maria" class="profile-pic">
+                    Maria
+                </label>
+                <p>Everything is great, just create at least one more PPA for each center of participation.</p>
+                <textarea id="comment" name="comment" placeholder="Insert Comment" rows="4" required></textarea>
+                <button type="submit">Submit Comment</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
